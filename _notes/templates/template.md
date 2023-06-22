@@ -1,8 +1,8 @@
 ---
 
-title: Template
+title: 
 feed: hide
-date: 31-12-2099
+date: 
 
 ---
 
