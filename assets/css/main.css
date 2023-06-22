@@ -2443,7 +2443,7 @@ a.navbar-item,
   .navbar-link:focus-within,
   .navbar-link:hover,
   .navbar-link.is-active {
-    background-color: #fafafa;
+    background-color: var(--color-bg-sub);
     color: var(--color-text-link); }
 
 .navbar-item {

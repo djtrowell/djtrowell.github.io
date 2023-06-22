@@ -6,51 +6,51 @@ layout: Stylesheet
 
 html,
 html[data-theme="light"] {
-    --color-bg-main: #FFFFFF;
-    --color-bg-sub: #FAFAFC;
-    --color-text-main: #282832;
-    --color-text-sub: #5D5D67;
-    --color-text-link: #2380ED;
-    --color-border-dark: #363636;
-    --color-border: #BABCBD;
-    --color-border-light: #E5E5E5;
+    --color-bg-main: #FFFBEF;
+    --color-bg-sub: #F2EFDF;
+    --color-text-main: #5C6A72;
+    --color-text-sub: #829181;
+    --color-text-link: #93B259;
+    --color-border-dark: #829181;
+    --color-border: #A6B0A0;
+    --color-border-light: #F2EFDF;
 }
 
 html[data-theme="dark"] {
-    --color-bg-main: #262626;
-    --color-bg-sub: #18181C;
-    --color-text-main: #FAFAFC;
-    --color-text-sub: #FFFEFF;
-    --color-text-link: #6D9EFF;
-    --color-border-dark: #E6E6E6;
-    --color-border: #696969;
-    --color-border-light: #353535;
+    --color-bg-main: #272E33;
+    --color-bg-sub: #374145;
+    --color-text-main: #D3C6AA;
+    --color-text-sub: #9DA9A0;
+    --color-text-link: #A7C080;
+    --color-border-dark: #9DA9A0;
+    --color-border: #7A8478;
+    --color-border-light: #374145;
 }
 
 @media (prefers-color-scheme: dark) {
 
     html,
     html[data-theme="dark"] {
-        --color-bg-main: #262626;
-        --color-bg-sub: #18181C;
-        --color-text-main: #FAFAFC;
-        --color-text-sub: #FFFEFF;
-        --color-text-link: #6D9EFF;
-        --color-border-dark: #E6E6E6;
-        --color-border: #696969;
-        --color-border-light: #353535;
+      --color-bg-main: #272E33;
+      --color-bg-sub: #374145;
+      --color-text-main: #D3C6AA;
+      --color-text-sub: #9DA9A0;
+      --color-text-link: #A7C080;
+      --color-border-dark: #9DA9A0;
+      --color-border: #7A8478;
+      --color-border-light: #374145;
     }
 
     html[data-theme="light"] {
-        --color-bg-main: #FFFFFF;
-        --color-bg-sub: #FAFAFC;
-        --color-text-main: #282832;
-        --color-text-sub: #5D5D67;
-        --color-text-link: #2380ED;
-        --color-border-dark: #363636;
-        --color-border: #BABCBD;
-        --color-border-light: #E5E5E5;
-    }
+      --color-bg-main: #FFFBEF;
+      --color-bg-sub: #F2EFDF;
+      --color-text-main: #5C6A72;
+      --color-text-sub: #829181;
+      --color-text-link: #93B259;
+      --color-border-dark: #829181;
+      --color-border: #A6B0A0;
+      --color-border-light: #F2EFDF;
+     }
 }
 
 :root {
