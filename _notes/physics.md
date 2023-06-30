@@ -9,4 +9,4 @@ permalink: /notes/physics
 
 ### Welcome to my physics notes! ⚛️
 
- 
+- [[quantum-theory]] 
