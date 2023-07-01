@@ -7,14 +7,6 @@ feed: show
 feedformat: card
 ---
 
-
-## Academic
- - [[chemistry]]
- - [[computer-science]]
- - [[languages]]
- - [[maths]]
- - [[physics]]
-
-## Tools & Workflows
+### Tools & Workflows
  - [[taskwarrior]]
  - [[vim]]
