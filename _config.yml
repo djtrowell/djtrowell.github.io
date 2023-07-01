@@ -65,10 +65,10 @@ plugins:
     
 ## Enable Collections
 ## Suggested collects are "notes" "lists" and "blog"
-#collections:
-#   notes:
-#     output: true
-#     permalink: /note/:title
+collections:
+   notes:
+     output: true
+     permalink: /note/:title
 
 markdown: kramdown
 
