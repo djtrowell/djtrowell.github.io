@@ -1,11 +1,14 @@
 ---
-title: Index
-feed: hide
+title: Notes
 date: 30-06-2023
+layout: Post
+permalink: /notes
+feed: show
+feedformat: card
 ---
 
-# Index.md
-## Personal Wiki
+
+## Academic
  - [[chemistry]]
  - [[computer-science]]
  - [[languages]]
@@ -14,4 +17,4 @@ date: 30-06-2023
 
 ## Tools & Workflows
  - [[taskwarrior]]
-
+ - [[vim]]

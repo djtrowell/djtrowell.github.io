@@ -9,7 +9,7 @@ feed : hide
 ### Basics {#basics}
 The basic structure of a command in Taskwarrior is:
 ```bash
-task <filters> <command> [ <mods> | <args> ]
+$ task <filters> <command> [ <mods> | <args> ]
 ```
 
 ### Filters {#filters}
