@@ -4,7 +4,7 @@ date : 30-06-2023
 feed : hide
 ---
 
-> Taskwarrior  is  a  command  line  todo list manager. It maintains a list of tasks that you want to do, allowing you to add/remove, and otherwise manipulate them.  Taskwarrior has a rich set of subcommands that  allow  you  to  do  various things with it.[^1]
+> Taskwarrior is a command line todo list manager. It maintains a list of tasks that you want to do, allowing you to add/remove, and otherwise manipulate them.  Taskwarrior has a rich set of subcommands that allow you to do various things with it.[^1]
 
 ### Basics {#basics}
 The basic structure of a command in Taskwarrior is:
@@ -36,23 +36,70 @@ $ task [UUID] <command> <mods>
 
 ### Commands {#commands}
 Taskwarrior supports different types of command:
- - [read](#read-commands)
+ - [reports](#report-commands)
  - [write](#write-commands)
  - [misc](#misc-commands)
- - [helper](#helper-commands)
 
-##### Read commands {#read-commands}
-Read commands (reports) do not allow the [modification](#modifications) of tasks. 
+##### Report commands {#report-commands}
+Reports do not allow the [modification](#modifications) of tasks.
 
-| command                   | action                                                                                                                                                   |                      |
-| ---                       | ---                                                                                                                                                      |                      |
-| `task --version`          | Displays version of Taskwarrior                                                                                                                          |                      |
-| `task <filters> all`      | Shows **all** tasks matching the filter                                                                                                                  |                      |
-| `task <filters> active`   | Shows tasks matching the filter that are **started but not completed**                                                                                   |                      |
-| `task <filters> blocked`  | Shows tasks matching the filter that are **blocked by other tasks**                                                                                      |                      |
-| `task <filters> blocking` | Shows tasks matching the filer that are **blocking other tasks**                                                                                         |                      |
-| `task <filters> burndown` | Shows a **graphical burndown chart** by week. `burndown.daily`, `burndown.weekly` or `burndown.monthly` can also be used. **It is affected by context.**                                                                                      |                      |
-|                           | `task <filters> calendar [due\|<month> <year>] [y]`                                                                                                                                                                                               |                      |
+They can be modifiable, which use the standard command format:
+```bash
+$ task <filters> all        # Show all tasks 
+$ task <filters> list       # Show details of tasks 
+$ task <filters> active     # Show active tasks 
+$ task <filters> overdue    # Show overdue tasks 
+$ task <filters> completed  # Show completed tasks 
+$ task <filters> recurring  # Show recurring tasks 
+$ task <filters> newest     # Show newest tasks 
+$ task <filters> oldest     # Show oldest tasks 
+$ task <filters> next       # Show most urgent tasks 
+$ task <filters> tags       # Show all tags used 
+$ task <filters> projects   # Show all projects used
+$ task <filters> ids        # Shows IDs of tasks 
+$ task <filters> uuids      # Shows UUIDs of tasks
+```
+
+Other reports may be static. These have custom code and so take non-standard arguments and may or may not support filters:
+```bash
+$ task calendar [due|<month> <year>] [y]  # Shows a monthly calendar with the due tasks marked
+                                          # 'due' will show the months starting from the earliest due task
+                                          # if a month and year is provided, the shown months will start
+                                          # from that month and year
+                                          # 'y' will show at least one complete year 
+$ task <filters> export                   # Exports all tasks in JSON format 
+$ task <filters> information              # Shows data and metadata of tasks 
+```
+
+### Write commands {#write-commands}
+Write commands may be used to alter aspects of tasks.
+
+```bash
+$ task add <mods>                 # Adds a new task 
+$ task <filters> duplicate <mods> # Duplicates a task and allows for modifications 
+$ task <filters> modify <mods>    # Modifies a task
+$ task <filters> delete <mods>    # Deletes a task 
+$ task <filters> purge            # Permanently removes deleted tasks
+$ task <filters> start <mods>     # Marks a task as started
+$ task <filters> stop <mods>      # Removes the start time from the specified task
+$ task <filters> done <mods>      # Marks a task as done 
+$ task <filters> prepend <mods>   # Prepends description text to a task
+$ task <filters> append <mods>    # Appends description text to a task 
+$ task <filters> annotate <mods>  # Adds an annotation to a task 
+$ task <filters> denotate <mods>  # Deletes an annotation from a task
+                                  # If the text isn't an exact match, the first partial match will be deleted
+$ task import [<file> ...]        # Imports tasks in JSON format
+                                  # This may either add or modify tasks 
+                                  # STDIN will be read if no file specified 
+```
+
+##### Misc commands {#misc-commands}
+Miscellaneous subcommands either accept no arguments or non-standard arguments.
+
+```bash
+$ task calc <expression>
+```
+
 ### Modifications {#modifications}
 Modifications come after the command and define the changes to apply to the selected task(s). For example:
 ```bash
@@ -67,4 +114,4 @@ $ task <filters> <command> /from/to/g # replace all matches
 ### Attribute modifiers {#attribute-modifiers}
 
 ---
-[^1]: Taskwarrior manual page
+[^1]: [Taskwarrior manual page](https://man.archlinux.org/man/task.1)
