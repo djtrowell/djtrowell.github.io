@@ -65,10 +65,10 @@ plugins:
     
 ## Enable Collections
 ## Suggested collects are "notes" "lists" and "blog"
-collections:
-    notes:
-      output: true
-      permalink: /note/:title
+#collections:
+#   notes:
+#     output: true
+#     permalink: /note/:title
 
 markdown: kramdown
 
@@ -107,9 +107,7 @@ defaults:
 # their entries' file path in the `include:` list.
 #
 exclude:
-  - _notes/000 Inbox
-  - _notes/200 Private
-  - _notes/300 Templates
+  - _notes/templates/
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
