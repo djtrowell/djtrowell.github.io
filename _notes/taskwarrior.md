@@ -1,7 +1,7 @@
 ---
-title : Taskwarrior
-date : 30-06-2023
-feed : hide
+title: Taskwarrior
+date: 30-06-2023
+feed: hide
 ---
 
 > Taskwarrior is a command line todo list manager. It maintains a list of tasks that you want to do, allowing you to add/remove, and otherwise manipulate them.  Taskwarrior has a rich set of subcommands that allow you to do various things with it.[^1]
