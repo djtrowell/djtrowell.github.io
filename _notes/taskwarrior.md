@@ -1,7 +1,7 @@
 ---
 title: Taskwarrior
 date: 30-06-2023
-feed: hide
+feed: show
 ---
 
 > Taskwarrior is a command line todo list manager. It maintains a list of tasks that you want to do, allowing you to add/remove, and otherwise manipulate them.  Taskwarrior has a rich set of subcommands that allow you to do various things with it.[^1]
@@ -33,6 +33,8 @@ $ task 1-3    <command> <mods>
 $ task 1 3-5  <command> <mods> 
 $ task [UUID] <command> <mods>
 ```
+
+[Attributes](#attributes) may be used to further filter tasks.
 
 ### Commands {#commands}
 Taskwarrior supports different types of command:
@@ -100,6 +102,21 @@ Miscellaneous subcommands either accept no arguments or non-standard arguments.
 $ task calc <expression>
 ```
 
+### Context {#context}
+Context is defined by the user, and can be used to automatically [filter](#filters) or [modify](#modifications) tasks.
+
+A context can be created using `task context define <name> <filters>`. For example:
+```bash 
+$ task context define studies project:studies 
+```
+To remove a context, `task context delete <name>` is used.
+
+To modify a context, use `task context context.<name>,<read/write> <filters>`.
+
+To switch contexts, use `task context <name>`, and use `task context none` to exit all contexts.
+
+To show the current context, `task context show` can be used. To show all defined contexts, use `task context`.
+
 ### Modifications {#modifications}
 Modifications come after the command and define the changes to apply to the selected task(s). For example:
 ```bash
@@ -110,8 +127,82 @@ $ task <filters> <command> annotation [text]
 $ task <filters> <command> /from/to/  # replace first match only
 $ task <filters> <command> /from/to/g # replace all matches
 ```
+### Attributes {#attributes}
+Attributes can be used to [filter](#filters} tasks.
+```
+project:<project-name>  # Specifies project 
+priority:<priority>     # Specifies priority 
+due:<date>              # Specifies due date  
+recur:<frequency>       # Specifies recurrence frequency 
+scheduled:<date>        # Specifies task start 
+until:<date>            # Specifies task expiration date 
+entry:<date>            # Specifies task creation date 
+```
+
+Attributes may be modified by [attribute modifiers](#attribute-modifiers).
 
 ### Attribute modifiers {#attribute-modifiers}
+Attribute modifiers can be applied to [attributes](#attributes) to improve filters. The `urgency` attribute can also be used with attribute modifiers. For example:
+```bash 
+$ task due.before:eom priority.not:L list 
+```
+In this example, all tasks that are due before the end of the month and have a priority other than low will be listed.
+
+```
+.before/under/below
+.after/over/above
+.by
+```
+These expressions can be used to compare values and will differ depending on their associated attribute. For example `project.before:<project>` will select projects which come alphabetically before the stated project, while `priority.before:<priority>` will select priorities lower than the stated priority. 
+
+Note that `.before` and its synonyms differ from `.by` in that `.by` will also include the stated item also. For example `due.before:eoy` will select tasks due before the end of the year, while `due.by:eoy` will select tasks due as late as the end of the year.
+
+```
+.none
+.any 
+```
+`.none` will select tasks which do not have a specific attribute set. For example `task priority.none: list`. `.any` is the opposite- it will select tasks with any value for the specified attribute, but the attribute must be set.
+
+```
+.is/equals
+.isnt/not 
+.has/contains 
+.hasnt
+```
+`.is` requires an exact match while `.has` searches for a substring. For example `task description.is:foo list` requires that the description text is "foo" while `task description.has:foo list` requires only that "foo" is found within the description.
+
+`.isnt` and `.hasnt` are the opposites of `.is` and `.has` respectively.
+
+```
+.startswith
+.endswith
+.word 
+.noword
+```
+
+`.starswith` and `.endswith` match the start and end of an attribute respectively.
+
+`.word` requires that the attribute contain the whole specified word. For example `description.word:foo` will match a description containing "foo", but not "food".
+
+`.noword` is the opposite of `.word`.
+
+### Expressions {#expressions}
+Operators can be used within [filter](#filters) expressions:
+```
+# Logical operators:
+  and 
+  or 
+  xor 
+  !
+# Relational operators:
+  < <=
+  = ==
+  != !==
+  > >=
+```
+Parentheses may also be used define precedence, however they must be surrounded by inverted commas to prevent the shell from interpreting them and hiding them from Taskwarrior.
+
+The `=` operator differs from the `==` operator in that `=` tests for approximate equality (i.e. same day, different hour/minute), while `==` requires exact equality. If `=` is used to compare strings, the start of the left operand must equal the right operand. The same applies to `!=` and `!==`.
 
 ---
 [^1]: [Taskwarrior manual page](https://man.archlinux.org/man/task.1)

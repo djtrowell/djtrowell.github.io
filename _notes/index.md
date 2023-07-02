@@ -7,6 +7,10 @@ feed: show
 feedformat: card
 ---
 
+### Computer science
+##### Linux
+ - [[environment-variables]]
+
 ### Tools & Workflows
  - [[taskwarrior]]
  - [[vim]]
