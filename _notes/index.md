@@ -9,8 +9,9 @@ feedformat: card
 
 ### Computer science
 ##### Linux
- - [[environment-variables]]
+ - [environment-variables](/notes/environment-variables)
 
 ### Tools & Workflows
- - [[taskwarrior]]
- - [[vim]]
+ - [taskwarrior](/notes/taskwarrior)
+ - [vim](/notes/vim)
+
