@@ -11,6 +11,10 @@ feedformat: card
 ##### Linux
  - [environment-variables](/notes/environment-variables)
 
+### Languages
+##### Polish
+ - [polish-cases](/notes/polish-cases)
+
 ### Tools & Workflows
  - [taskwarrior](/notes/taskwarrior)
  - [vim](/notes/vim)
