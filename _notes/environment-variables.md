@@ -1,7 +1,7 @@
 ---
 title: Environment variables
 date: 02-07-2023
-feed: show
+feed: hide
 ---
 
 > An environment variable is a named object that contains data used by on or more applications. In simple terms, it is a variable with a name and a value. The value of an environment variable can for example be the location of all executable files in the file system, the default editor  that should be used, or the system locale settings.[^1]
