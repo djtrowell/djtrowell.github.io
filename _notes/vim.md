@@ -16,7 +16,7 @@ Note that each of the following actions will copy the deleted text into register
 |          | delete character under cursor                                            |
 |          | delete character before cursor                                           |
 |  | delete characters between initial position and new position              |
-| n        | delete line                                                              |
+| :        | delete line                                                              |
 |   | delete newline and whitespace between current line and [count] - 1 lines |
 
 
