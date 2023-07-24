@@ -12,4 +12,3 @@ In Polish, there are seven main cases:
  - [Genitive](dopełniacz)      Possession
  - [Instrumental](narzędnik)  Tool/means
  - [Locative](miejscownik)      Location
-

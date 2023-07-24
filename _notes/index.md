@@ -18,4 +18,3 @@ feedformat: card
 ### Tools & Workflows
  - [taskwarrior](/notes/taskwarrior)
  - [vim](/notes/vim)
-
